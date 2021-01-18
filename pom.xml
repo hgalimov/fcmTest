@@ -14,9 +14,9 @@
     <name>fcmTest</name>
     <description>Тестирование fcm</description>
 
-    <properties>
+   <!-- <properties>
         <java.version>15</java.version>
-    </properties>
+    </properties>-->
 
     <dependencies>
         <dependency>
