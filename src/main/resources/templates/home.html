@@ -6,14 +6,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<main>
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <div class="col-md-5 p-lg-5 mx-auto my-5">
-            <p class="lead fw-normal">Отправка пуш-уведомления</p>
+    <form th:action="@{/}" th:object="${data}" method="post">
+        <div class="form-group">
+            <label for="to">Токен устройства</label>
+            <input type="text" class="form-control" th:value="${to}" id="to" name="to">
         </div>
-        <div class="product-device shadow-sm d-none d-md-block"></div>
-        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-    </div>
-</main>
+        <div class="form-group">
+            <label for="notification_title">Заголовок уведомления</label>
+            <input type="text" class="form-control" th:field="*{notification_title}" id="notification_title">
+        </div>
+        <div class="form-group">
+            <label for="notification_body">Тело уведомления</label>
+            <input type="text" class="form-control" th:field="*{notification_body}" id="notification_body">
+        </div>
+        <div class="form-group">
+            <label for="payload_title">Полезная нагрузка Заголовок</label>
+            <input type="text" class="form-control" th:field="*{payload_title}" id="payload_title">
+        </div>
+        <div class="form-group">
+            <label for="payload_body">Полезная нагрузка Тело</label>
+            <input type="text" class="form-control" th:field="*{payload_body}" id="payload_body">
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+    <br>
+    <p>Результат: <span th:text="${result}"></span></p>
 </body>
 </html>
